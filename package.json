@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-test-app",
+  "version": "1.0.0",
+  "description": "NodeJS Test App",
+  "main": "app.js",
+  "scripts": {
+      "start": "node app.js",
+      "monitor": "nodemon app.js",
+      "deploy": "gcloud app deploy app.yaml",
+      "test": "mocha test/index.js -t 30000"
+    },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.0",
+    "cors": "^2.8.0",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "firebase": "^3.3.0"
+  }
+}
