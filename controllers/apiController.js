@@ -5,7 +5,7 @@ var ref =require('../firebase/firebase');
 var jsonParser = bodyParser.json();
 
 module.exports = function(app) {
-	// app.use(cors());
+	
 	app.get('/api/person/:id', function(req, res,next) {
 	// get that data from database
 		res.json({ firstname: 'John', lastname: 'Doe' });

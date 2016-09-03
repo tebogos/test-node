@@ -1,13 +1,13 @@
-var express = require('express');
-var app = express();
-// var cors = require('cors');
+var express = require('express')
+  , cors = require('cors')
+  , app = express();
 
 var apiController = require('./controllers/apiController');
 var htmlController = require('./controllers/htmlController');
 
-var port = process.env.PORT || 3001;
+var port = process.env.PORT || 8080;
 
-
+app.use(cors());
 app.use('/assets', express.static(__dirname + '/public'));
 
 app.set('view engine', 'ejs');
