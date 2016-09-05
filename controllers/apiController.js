@@ -22,16 +22,14 @@ module.exports = function(app) {
 	app.post('/api/startProcess',jsonParser, function(req, res,next) {
 		var uid;
 		fb.auth().verifyIdToken(req.body.idToken).then(function(decodedToken) {
-			if(decodedToken.uid){
-   uid = decodedToken.uid;}
-	 else{
-		 uid="YYYY";
-	 }
+
+  	res.send('Thank you for the JSON data! region: '+req.body.region+' processType : '+req.body.processType+' UID: '+ decodedToken.uid);}
+
   // ...
 }).catch(function(error) {
-  // Handle error
+  res.send('Erro This is yhe error: '+req.body.region+' processType : '+req.body.processType+' UID: '+ error);}
 });
-		res.send('Thank you for the JSON data! region: '+req.body.region+' processType : '+req.body.processType+' UID: '+uid);
+
 
 		console.log(req.body.firstname);
 		console.log(req.body.lastname);
