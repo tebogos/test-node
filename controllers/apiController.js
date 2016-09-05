@@ -20,7 +20,7 @@ module.exports = function(app) {
 	});
 
 	app.post('/api/startProcess',jsonParser, function(req, res,next) {
-		res.send('Thank you for the JSON data! region: '+req.body.region+' processType : '+req.body.processType+' UID: '+ req.body.idToken);
+		// res.send('Thank you for the JSON data! region: '+req.body.region+' processType : '+req.body.processType+' UID: '+ req.body.idToken);
 		fb.auth().verifyIdToken(req.body.idToken).then(function(decodedToken) {
 
   	res.send('Thank you for the JSON data! region: '+req.body.region+' processType : '+req.body.processType+' UID: '+ decodedToken.uid);
