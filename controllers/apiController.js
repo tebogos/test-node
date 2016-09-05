@@ -21,7 +21,7 @@ module.exports = function(app) {
 
 	app.post('/api/startProcess',jsonParser, function(req, res,next) {
 		var uid;
-		firebase.auth().verifyIdToken(idToken).then(function(decodedToken) {
+		ref.auth().verifyIdToken(idToken).then(function(decodedToken) {
    uid = decodedToken.uid;
   // ...
 }).catch(function(error) {
