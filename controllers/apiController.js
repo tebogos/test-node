@@ -22,12 +22,16 @@ module.exports = function(app) {
 	app.post('/api/startProcess',jsonParser, function(req, res,next) {
 		var uid;
 		fb.auth().verifyIdToken(req.body.idToken).then(function(decodedToken) {
-   uid = decodedToken.uid;
+			if(decodedToken.uid){
+   uid = decodedToken.uid;}
+	 else{
+		 uid="YYYY";
+	 }
   // ...
 }).catch(function(error) {
   // Handle error
 });
-		res.send('Thank you for the JSON data! firstnamev: '+req.body.firstname+' lastname : '+req.body.lastname+uid);
+		res.send('Thank you for the JSON data! region: '+req.body.region+' processType : '+req.body.processType+' UID: '+uid);
 
 		console.log(req.body.firstname);
 		console.log(req.body.lastname);
