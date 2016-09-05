@@ -1,6 +1,6 @@
 
 var bodyParser = require('body-parser');
-var auth =require('../firebase/firebase');
+var fb =require('../firebase/firebase');
 
 var jsonParser = bodyParser.json();
 
@@ -21,7 +21,7 @@ module.exports = function(app) {
 
 	app.post('/api/startProcess',jsonParser, function(req, res,next) {
 		var uid;
-		auth.verifyIdToken(idToken).then(function(decodedToken) {
+		fb.auth().verifyIdToken(req.body.idToken).then(function(decodedToken) {
    uid = decodedToken.uid;
   // ...
 }).catch(function(error) {
@@ -32,9 +32,9 @@ module.exports = function(app) {
 		console.log(req.body.firstname);
 		console.log(req.body.lastname);
 			console.log(req.body.idToken);
-		// ref.once("value", function(snapshot) {
-		//   console.log(snapshot.val());
-		// });
+		fb.database().ref("user").once("value", function(snapshot) {
+		  console.log(snapshot.val());
+		});
 
 	});
 
