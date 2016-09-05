@@ -23,7 +23,7 @@ module.exports = function(app) {
 		var uid;
 		fb.auth().verifyIdToken(req.body.idToken).then(function(decodedToken) {
 
-  	res.send('Thank you for the JSON data! region: '+req.body.region+' processType : '+req.body.processType+' UID: '+ decodedToken.uid);}
+  	res.send('Thank you for the JSON data! region: '+req.body.region+' processType : '+req.body.processType+' UID: '+ decodedToken.uid);
 
   // ...
 }).catch(function(error) {
