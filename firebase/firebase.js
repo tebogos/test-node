@@ -5,8 +5,9 @@ firebase.initializeApp({
 });
 
 var db = firebase.database();
+var auth=firebase.auth();
 var ref = db.ref("user");
 ref.once("value", function(snapshot) {
   console.log(snapshot.val());
 });
-module.exports =ref;
+module.exports =auth;
