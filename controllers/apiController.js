@@ -27,7 +27,7 @@ module.exports = function(app) {
 
   // ...
 }).catch(function(error) {
-  res.send('Erro This is yhe error: '+req.body.region+' processType : '+req.body.processType+' UID: '+ error);}
+  res.send('Erro This is yhe error: '+req.body.region+' processType : '+req.body.processType+' UID: '+ error);
 });
 
 
