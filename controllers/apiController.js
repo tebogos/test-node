@@ -15,6 +15,23 @@ module.exports = function(app) {
 		res.send('Thank you for the JSON data! firstnamev: '+req.body.firstname+' lastname : '+req.body.lastname);
 		console.log(req.body.firstname);
 		console.log(req.body.lastname);
+
+
+	});
+
+	app.post('/api/startProcess',jsonParser, function(req, res,next) {
+		var uid;
+		firebase.auth().verifyIdToken(idToken).then(function(decodedToken) {
+   uid = decodedToken.uid;
+  // ...
+}).catch(function(error) {
+  // Handle error
+});
+		res.send('Thank you for the JSON data! firstnamev: '+req.body.firstname+' lastname : '+req.body.lastname+uid);
+
+		console.log(req.body.firstname);
+		console.log(req.body.lastname);
+			console.log(req.body.idToken);
 		ref.once("value", function(snapshot) {
 		  console.log(snapshot.val());
 		});
